@@ -6,7 +6,7 @@ public class ReverbLoop : MonoBehaviour
 {
     public int bars; //total number of bars AKA measures in the track
     public int bpm; //bpm of the track
-    public int beatsInMeasure; //beats per measure in the track, so 4 for a song in 4/4 time
+    public int beatsInMeasure; //beats per measure in the track, so 3 for a song in 3/4 time
     private double barlength;
     private double repeatlength;
     private double goTime;
