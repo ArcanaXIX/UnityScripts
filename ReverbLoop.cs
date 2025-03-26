@@ -7,6 +7,8 @@ public class ReverbLoop : MonoBehaviour
     public int bars; //total number of bars AKA measures in the track NOT INCLUDING REVERB TAIL
     public int bpm; //bpm of the track
     public int beatsInMeasure; //beats per measure in the track, so 3 for a song in 3/4 time
+    public int extraBeats; //if the loop length is not a neat bar count add extra beats here
+    private double beatlength;
     private double barlength;
     private double repeatlength;
     private double goTime;
@@ -22,8 +24,9 @@ public class ReverbLoop : MonoBehaviour
     }
     private void Calculate()
     {
-        barlength = 60d / bpm * beatsInMeasure;
-        repeatlength = barlength * bars;
+        beatlength = 60d / bpm;
+        barlength = beatlength * beatsInMeasure;
+        repeatlength = (barlength * bars) + (beatlength * extraBeats);
     }
 
     private void Prepare()
